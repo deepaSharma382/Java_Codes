@@ -1,0 +1,31 @@
+import java.util.*;
+import java.io.*;
+
+class Solution
+{
+public static void result(int x, int y, int m)
+        {
+            int sum,i;
+             sum = x;
+            for(i=0;i<m;i++)
+             {   
+                sum = sum + (int)(Math.pow(2.0,i) * y);
+                System.out.print(sum+" ");
+            }
+            System.out.printf("%n");
+        }
+ public static void main(String []argh)
+    {
+        int i,sum;
+        Scanner in = new Scanner(System.in);
+        int t=in.nextInt();
+        for(i=0;i<t;i++)
+        {
+            int a = in.nextInt();
+            int b = in.nextInt();
+            int n = in.nextInt();
+            result(a,b,n);
+        }      
+          in.close();
+    } 
+}
