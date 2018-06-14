@@ -1,0 +1,70 @@
+import java.util.Scanner;
+public class Complex 
+{
+	float r;
+	float i;
+	public Complex(float r,float i)
+	{
+		this.r=r;
+		this.i=i;
+	}
+	Complex add(Complex c)
+	{
+		Complex temp = new Complex(r,i);
+		temp.r = r+c.r;
+		temp.i = i+c.i;
+		return temp;
+	}
+	Complex sub(Complex c)
+	{
+		Complex temp = new Complex(r,i);
+		temp.r = r-c.r;
+		temp.i = i-c.i;
+		return temp;
+	}
+	Complex mul(Complex c)
+	{
+		Complex temp = new Complex(r,i);
+        temp.r=(r*c.r)-(i*c.i);
+        temp.i=(r*c.i)+(i*c.r);
+        return temp;
+	}
+	Complex div(Complex c)
+	{
+		Complex temp = new Complex(r,i);
+	     temp.r=((r*c.r)+(i*c.i))/((c.r*c.r)+(c.i*c.i));
+	     temp.i=((i*c.r)-(r*c.i))/((c.r*c.r)+(c.i*c.i));
+	     return temp;
+	}
+	public void print()
+	{
+		System.out.println(r+"+i"+i);
+	}
+	public static void main(String[] args)
+	{
+		float r,i;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter 1st complex number:");
+		r = sc.nextFloat();
+		i = sc.nextFloat();
+		Complex c1 = new Complex(r,i);
+		System.out.println("Enter 2nd complex number:");
+		r = sc.nextFloat();
+		i = sc.nextFloat();
+		Complex c2 = new Complex(r,i);
+		Complex c3,c4,c5,c6;
+		c3 = c1.add(c2);
+		System.out.println("Addition is: ");
+		c3.print();
+		c4 = c1.sub(c2);
+		System.out.println("Subtraction is: ");
+		c4.print();
+		c5 = c1.mul(c2);
+		System.out.println("Multiplication is: ");
+		c5.print();
+		c6 = c1.div(c2);
+		System.out.println("Division is: ");
+		c6.print();
+		sc.close();
+	}
+}
